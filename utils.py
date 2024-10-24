@@ -1,5 +1,22 @@
 # %% [code]
-# %% [code]
+from zipfile import ZipFile
+from urllib.request import urlretrieve
+
+def download_and_unzip(url, save_path):
+    print('Downloading and extracting assets...', end='')
+    
+    urlretrieve(url, save_path)
+    
+    try:
+        with ZipFile(save_path) as z:
+            z.extractall(os.path.split(save_path)[0])
+            
+        print('Done')
+        
+    except Exception as e:
+        print("\nInvalid file.", e)
+
+
 import numpy as np
 
 def shuffle_and_split_data(data, test_ratio, seed = None):
