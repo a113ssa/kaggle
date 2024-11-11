@@ -3,8 +3,8 @@
 # paste the folowing code in notebook to include this utils
 # import os
 # import sys 
-# sys.path.append(os.path.abspath('/kaggle/usr/lib/<utility folder>/<utility file>.py'))
-# import <name_of_utility> # e.g. utils
+# sys.path.append(os.path.abspath('/kaggle/usr/lib/utils/utils.py'))
+# import utils
 
 import os
 
@@ -42,7 +42,7 @@ def plot_loss_and_accuracy(history):
     val_loss = history.history['val_loss']
     val_acc = history.history['val_accuracy']
     
-    plot_results(
+    plot_train_results(
         [train_loss, val_loss],
         ylabel='Loss',
         ylim=[0.0, 5.0],
@@ -50,7 +50,7 @@ def plot_loss_and_accuracy(history):
         color=['orange', 'g']
     )
     
-    plot_results(
+    plot_train_results(
         [train_acc, val_acc],
         ylabel='Accuracy',
         ylim=[0.0, 1.0],
