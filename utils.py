@@ -11,7 +11,7 @@ import os
 import matplotlib.pyplot as plt
 from matplotlib.ticker import (MultipleLocator, FormatStrFormatter)
 
-def plot_train_results(metrics, title=None, ylabel=None, ylim=None, metric_name=None, color=None):
+def plot_train_results(metrics, epochs, title=None, ylabel=None, ylim=None, metric_name=None, color=None):
     fix, ax = plt.subplots(figsize=(15, 4))
     
     if not (isinstance(metric_name, list) or isinstance(metric_name, tuple)):
@@ -24,7 +24,7 @@ def plot_train_results(metrics, title=None, ylabel=None, ylim=None, metric_name=
     plt.xlabel('Epoch')
     plt.ylabel(ylabel)
     plt.title(title)
-    plt.xlim([0, TrainingConfig.EPOCHS - 1])
+    plt.xlim([0, epochs])
     plt.ylim(ylim)
     
     ax.xaxis.set_major_locator(MultipleLocator(5))
