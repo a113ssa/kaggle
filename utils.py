@@ -36,7 +36,7 @@ def plot_train_results(metrics, epochs, title=None, ylabel=None, ylim=None, metr
     plt.show()
     plt.close()
 
-def plot_loss_and_accuracy(history):
+def plot_loss_and_accuracy(history, epochs):
     train_loss = history.history['loss']
     train_acc = history.history['accuracy']
     val_loss = history.history['val_loss']
@@ -44,6 +44,7 @@ def plot_loss_and_accuracy(history):
     
     plot_train_results(
         [train_loss, val_loss],
+        epochs,
         ylabel='Loss',
         ylim=[0.0, 5.0],
         metric_name=['Training Loss', 'Validation Loss'],
@@ -52,6 +53,7 @@ def plot_loss_and_accuracy(history):
     
     plot_train_results(
         [train_acc, val_acc],
+        epochs,
         ylabel='Accuracy',
         ylim=[0.0, 1.0],
         metric_name=['Training Accuracy', 'Validation Accuracy'],
