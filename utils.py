@@ -24,7 +24,7 @@ def plot_train_results(metrics, epochs, title=None, ylabel=None, ylim=None, metr
     plt.xlabel('Epoch')
     plt.ylabel(ylabel)
     plt.title(title)
-    plt.xlim([0, epochs])
+    plt.xlim([0, epochs - 1])
     plt.ylim(ylim)
     
     ax.xaxis.set_major_locator(MultipleLocator(5))
