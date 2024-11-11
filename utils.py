@@ -1,4 +1,11 @@
 # %% [code]
+
+# paste the folowing code in notebook to include this utils
+# import os
+# import sys 
+# sys.path.append(os.path.abspath('/kaggle/usr/lib/<utility folder>/<utility file>.py'))
+# import <name_of_utility> # e.g. utils
+
 import os
 
 import matplotlib.pyplot as plt
@@ -28,6 +35,28 @@ def plot_train_results(metrics, title=None, ylabel=None, ylim=None, metric_name=
     plt.legend(metric_name)
     plt.show()
     plt.close()
+
+def plot_loss_and_accuracy(history):
+    train_loss = history.history['loss']
+    train_acc = history.history['accuracy']
+    val_loss = history.history['val_loss']
+    val_acc = history.history['val_accuracy']
+    
+    plot_results(
+        [train_loss, val_loss],
+        ylabel='Loss',
+        ylim=[0.0, 5.0],
+        metric_name=['Training Loss', 'Validation Loss'],
+        color=['orange', 'g']
+    )
+    
+    plot_results(
+        [train_acc, val_acc],
+        ylabel='Accuracy',
+        ylim=[0.0, 1.0],
+        metric_name=['Training Accuracy', 'Validation Accuracy'],
+        color=['orange', 'g']
+    )
 
 
 from zipfile import ZipFile
