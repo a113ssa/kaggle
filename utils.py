@@ -1,4 +1,5 @@
 # %% [code]
+# %% [code]
 
 # paste the folowing code in notebook to include this utils
 # import os
@@ -35,30 +36,6 @@ def plot_train_results(metrics, epochs, title=None, ylabel=None, ylim=None, metr
     plt.legend(metric_name)
     plt.show()
     plt.close()
-
-def plot_loss_and_accuracy(history, epochs):
-    train_loss = history.history['loss']
-    train_acc = history.history['accuracy']
-    val_loss = history.history['val_loss']
-    val_acc = history.history['val_accuracy']
-    
-    plot_train_results(
-        [train_loss, val_loss],
-        epochs,
-        ylabel='Loss',
-        ylim=[0.0, 5.0],
-        metric_name=['Training Loss', 'Validation Loss'],
-        color=['orange', 'g']
-    )
-    
-    plot_train_results(
-        [train_acc, val_acc],
-        epochs,
-        ylabel='Accuracy',
-        ylim=[0.0, 1.0],
-        metric_name=['Training Accuracy', 'Validation Accuracy'],
-        color=['orange', 'g']
-    )
 
 
 from zipfile import ZipFile
